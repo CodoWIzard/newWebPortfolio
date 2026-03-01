@@ -21,8 +21,11 @@ export default function Navigation() {
       className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-black/80 backdrop-blur-md border-b border-zinc-200 dark:border-zinc-800"
     >
       <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-        <Link href="/" className="text-xl font-semibold text-black dark:text-white">
-          Portfolio
+        <Link
+          href="/"
+          className="text-xl font-semibold text-black dark:text-white"
+        >
+          DerooStudio
         </Link>
         <div className="flex gap-8">
           {links.map((link) => (

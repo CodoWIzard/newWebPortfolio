@@ -9,37 +9,70 @@ export default function Home() {
   const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
 
   const skills = [
-    { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
-    { name: "TypeScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
-    { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
-    { name: "Next.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
-    { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
-    { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
-    { name: "TailwindCSS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" },
-    { name: "PostgreSQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
-    { name: "MongoDB", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
-    { name: "AWS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" },
+    {
+      name: "JavaScript",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+    },
+    {
+      name: "TypeScript",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+    },
+    {
+      name: "React",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+    },
+    {
+      name: "Next.js",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+    },
+    {
+      name: "Node.js",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+    },
+    {
+      name: "Python",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+    },
+    {
+      name: "TailwindCSS",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
+    },
+    {
+      name: "PostgreSQL",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+    },
+    {
+      name: "MongoDB",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+    },
+    {
+      name: "AWS",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+    },
   ];
 
   const projects = [
     {
       title: "E-Commerce Platform",
-      description: "Full-stack e-commerce solution with payment integration, inventory management, and admin dashboard.",
+      description:
+        "Full-stack e-commerce solution with payment integration, inventory management, and admin dashboard.",
       tech: ["Next.js", "PostgreSQL", "Stripe"],
-      link: "#"
+      link: "#",
     },
     {
       title: "Task Management System",
-      description: "Collaborative project management tool with real-time updates and team collaboration features.",
+      description:
+        "Collaborative project management tool with real-time updates and team collaboration features.",
       tech: ["React", "Node.js", "WebSocket"],
-      link: "#"
+      link: "#",
     },
     {
       title: "Analytics Dashboard",
-      description: "Data visualization platform for business intelligence with interactive charts and reports.",
+      description:
+        "Data visualization platform for business intelligence with interactive charts and reports.",
       tech: ["TypeScript", "D3.js", "Express"],
-      link: "#"
-    }
+      link: "#",
+    },
   ];
 
   return (
@@ -55,11 +88,11 @@ export default function Home() {
               transition={{ duration: 0.6 }}
             >
               <h1 className="text-5xl md:text-6xl font-bold text-black dark:text-white mb-6">
-                Software Engineer
+                Jayden de Roo
               </h1>
               <p className="text-xl text-zinc-600 dark:text-zinc-400 mb-8 max-w-2xl">
-                Building scalable web applications with modern technologies.
-                Passionate about clean code, user experience, and solving complex problems.
+                Aspiring Software Engineer with focus on solid code, unique
+                design and functional systems.
               </p>
             </motion.div>
           </div>
@@ -86,11 +119,23 @@ export default function Home() {
                     initial={{ opacity: 0, scale: 0 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
-                    transition={{ delay: index * 0.05, type: "spring", stiffness: 200 }}
+                    transition={{
+                      delay: index * 0.05,
+                      type: "spring",
+                      stiffness: 200,
+                    }}
                     whileHover={{ scale: 1.3, zIndex: 10 }}
                     animate={{
-                      x: [Math.cos(angle) * radius, Math.cos(angle + 0.5) * radius, Math.cos(angle) * radius],
-                      y: [Math.sin(angle) * radius, Math.sin(angle + 0.5) * radius, Math.sin(angle) * radius],
+                      x: [
+                        Math.cos(angle) * radius,
+                        Math.cos(angle + 0.5) * radius,
+                        Math.cos(angle) * radius,
+                      ],
+                      y: [
+                        Math.sin(angle) * radius,
+                        Math.sin(angle + 0.5) * radius,
+                        Math.sin(angle) * radius,
+                      ],
                     }}
                     transition={{
                       duration: 20,
@@ -108,7 +153,11 @@ export default function Home() {
                           : "bg-white dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800"
                       }`}
                     >
-                      <img src={skill.icon} alt={skill.name} className="w-12 h-12" />
+                      <img
+                        src={skill.icon}
+                        alt={skill.name}
+                        className="w-12 h-12"
+                      />
                     </div>
                   </motion.div>
                 );
