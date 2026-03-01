@@ -1,13 +1,24 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useState } from "react";
 import Navigation from "./Navigation";
 import Footer from "./Footer";
 
 export default function Home() {
+  const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
+
   const skills = [
-    "JavaScript", "TypeScript", "React", "Next.js", "Node.js",
-    "Python", "TailwindCSS", "PostgreSQL", "MongoDB", "AWS"
+    { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+    { name: "TypeScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+    { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+    { name: "Next.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
+    { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+    { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+    { name: "TailwindCSS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" },
+    { name: "PostgreSQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
+    { name: "MongoDB", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+    { name: "AWS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" },
   ];
 
   const projects = [
@@ -61,24 +72,47 @@ export default function Home() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              className="text-3xl font-bold text-black dark:text-white mb-12"
+              className="text-3xl font-bold text-black dark:text-white mb-12 text-center"
             >
               Skills & Tools
             </motion.h2>
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-              {skills.map((skill, index) => (
-                <motion.div
-                  key={skill}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.05 }}
-                  whileHover={{ scale: 1.05 }}
-                  className="px-4 py-3 bg-zinc-100 dark:bg-zinc-900 rounded-lg text-center text-sm font-medium text-zinc-800 dark:text-zinc-200 border border-zinc-200 dark:border-zinc-800"
-                >
-                  {skill}
-                </motion.div>
-              ))}
+            <div className="relative flex items-center justify-center min-h-[500px]">
+              {skills.map((skill, index) => {
+                const angle = (index / skills.length) * 2 * Math.PI;
+                const radius = 150;
+                return (
+                  <motion.div
+                    key={skill.name}
+                    initial={{ opacity: 0, scale: 0 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.05, type: "spring", stiffness: 200 }}
+                    whileHover={{ scale: 1.3, zIndex: 10 }}
+                    animate={{
+                      x: [Math.cos(angle) * radius, Math.cos(angle + 0.5) * radius, Math.cos(angle) * radius],
+                      y: [Math.sin(angle) * radius, Math.sin(angle + 0.5) * radius, Math.sin(angle) * radius],
+                    }}
+                    transition={{
+                      duration: 20,
+                      repeat: Infinity,
+                      ease: "linear",
+                    }}
+                    onMouseEnter={() => setHoveredSkill(skill.name)}
+                    onMouseLeave={() => setHoveredSkill(null)}
+                    className="absolute cursor-pointer"
+                  >
+                    <div
+                      className={`p-4 rounded-full border transition-all duration-300 ${
+                        hoveredSkill === skill.name
+                          ? "bg-blue-500/10 border-blue-500 shadow-lg shadow-blue-500/30"
+                          : "bg-white dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800"
+                      }`}
+                    >
+                      <img src={skill.icon} alt={skill.name} className="w-12 h-12" />
+                    </div>
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
         </section>
