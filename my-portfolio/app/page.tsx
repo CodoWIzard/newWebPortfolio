@@ -109,59 +109,37 @@ export default function Home() {
             >
               Skills & Tools
             </motion.h2>
-            <div className="relative flex items-center justify-center min-h-[500px]">
-              {skills.map((skill, index) => {
-                const angle = (index / skills.length) * 2 * Math.PI;
-                const radius = 150;
-                return (
-                  <motion.div
-                    key={skill.name}
-                    initial={{ opacity: 0, scale: 0 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{
-                      delay: index * 0.05,
-                      type: "spring",
-                      stiffness: 200,
-                    }}
-                    whileHover={{ scale: 1.3, zIndex: 10 }}
-                    animate={{
-                      x: [
-                        Math.cos(angle) * radius,
-                        Math.cos(angle + 0.5) * radius,
-                        Math.cos(angle) * radius,
-                      ],
-                      y: [
-                        Math.sin(angle) * radius,
-                        Math.sin(angle + 0.5) * radius,
-                        Math.sin(angle) * radius,
-                      ],
-                    }}
-                    transition={{
-                      duration: 20,
-                      repeat: Infinity,
-                      ease: "linear",
-                    }}
-                    onMouseEnter={() => setHoveredSkill(skill.name)}
-                    onMouseLeave={() => setHoveredSkill(null)}
-                    className="absolute cursor-pointer"
-                  >
-                    <div
-                      className={`p-4 rounded-full border transition-all duration-300 ${
-                        hoveredSkill === skill.name
-                          ? "bg-blue-500/10 border-blue-500 shadow-lg shadow-blue-500/30"
-                          : "bg-white dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800"
-                      }`}
-                    >
-                      <img
-                        src={skill.icon}
-                        alt={skill.name}
-                        className="w-12 h-12"
+            <div className="grid grid-cols-3 md:grid-cols-5 gap-6">
+              {skills.map((skill, index) => (
+                <motion.div
+                  key={skill.name}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.05 }}
+                  whileHover={{ y: -8, scale: 1.05 }}
+                  onMouseEnter={() => setHoveredSkill(skill.name)}
+                  onMouseLeave={() => setHoveredSkill(null)}
+                  className="flex flex-col items-center gap-3 p-4 rounded-xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-blue-500 dark:hover:border-blue-500 transition-all duration-300 cursor-pointer group"
+                >
+                  <div className="relative">
+                    <img
+                      src={skill.icon}
+                      alt={skill.name}
+                      className="w-12 h-12 transition-transform duration-300 group-hover:scale-110"
+                    />
+                    {hoveredSkill === skill.name && (
+                      <motion.div
+                        layoutId="skillGlow"
+                        className="absolute inset-0 bg-blue-500/20 rounded-lg blur-xl -z-10"
                       />
-                    </div>
-                  </motion.div>
-                );
-              })}
+                    )}
+                  </div>
+                  <span className="text-xs font-medium text-zinc-600 dark:text-zinc-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors text-center">
+                    {skill.name}
+                  </span>
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>
