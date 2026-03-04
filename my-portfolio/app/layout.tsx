@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Software Engineer Portfolio",
-  description: "Professional portfolio showcasing software engineering projects and WordPress development services",
-  metadataBase: new URL('https://yoursite.com'),
+  title: "DerooStudio",
+  description: "Welcome to my page!",
+  metadataBase: new URL("https://yoursite.com"),
 };
 
 export default function RootLayout({

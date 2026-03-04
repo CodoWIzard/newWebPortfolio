@@ -3,14 +3,32 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 
 export default function Navigation() {
   const pathname = usePathname();
+  const [time, setTime] = useState("");
+
+  useEffect(() => {
+    const updateTime = () => {
+      const now = new Date();
+      const amsterdamTime = now.toLocaleTimeString("en-US", {
+        timeZone: "Europe/Amsterdam",
+        hour12: false,
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit"
+      });
+      setTime(amsterdamTime);
+    };
+    updateTime();
+    const interval = setInterval(updateTime, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   const links = [
     { href: "/", label: "Home" },
     { href: "/wordpress", label: "WordPress" },
-    { href: "/industrial-design", label: "Industrial Design" },
   ];
 
   return (
@@ -21,12 +39,18 @@ export default function Navigation() {
       className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-black/80 backdrop-blur-md border-b border-zinc-200 dark:border-zinc-800"
     >
       <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-        <Link
-          href="/"
-          className="text-xl font-semibold text-black dark:text-white"
-        >
-          DerooStudio
-        </Link>
+        <div className="flex items-center gap-4">
+          <div className="hidden md:flex items-center gap-2 px-3 py-1 bg-zinc-100 dark:bg-zinc-900 rounded border border-zinc-200 dark:border-zinc-800">
+            <span className="text-xs font-mono text-zinc-500 dark:text-zinc-500">AMS</span>
+            <span className="text-xs font-mono text-green-600 dark:text-green-500">{time}</span>
+          </div>
+          <Link
+            href="/"
+            className="text-xl font-semibold text-black dark:text-white"
+          >
+            DerooStudio
+          </Link>
+        </div>
         <div className="flex gap-8">
           {links.map((link) => (
             <Link

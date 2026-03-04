@@ -10,67 +10,52 @@ export default function Home() {
 
   const skills = [
     {
-      name: "JavaScript",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
-    },
-    {
-      name: "TypeScript",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
-    },
-    {
-      name: "React",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+      name: "PHP",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
     },
     {
       name: "Next.js",
       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
     },
     {
-      name: "Node.js",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+      name: "Nuxt.js",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nuxtjs/nuxtjs-original.svg",
     },
     {
-      name: "Python",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+      name: "MySQL",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
     },
     {
       name: "TailwindCSS",
       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
     },
     {
-      name: "PostgreSQL",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
-    },
-    {
-      name: "MongoDB",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+      name: "TypeScript",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
     },
     {
       name: "AWS",
       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
     },
+    {
+      name: "Java",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+    },
   ];
 
   const projects = [
     {
-      title: "E-Commerce Platform",
+      title: "PWA Mobile-First",
       description:
-        "Full-stack e-commerce solution with payment integration, inventory management, and admin dashboard.",
-      tech: ["Next.js", "PostgreSQL", "Stripe"],
+        "A mobile-first driven web project. This web-app is capable of functioning offline by caching your data from your latest on-line session.",
+      tech: ["Test"],
       link: "#",
     },
     {
-      title: "Task Management System",
+      title: "FineTune",
       description:
-        "Collaborative project management tool with real-time updates and team collaboration features.",
-      tech: ["React", "Node.js", "WebSocket"],
-      link: "#",
-    },
-    {
-      title: "Analytics Dashboard",
-      description:
-        "Data visualization platform for business intelligence with interactive charts and reports.",
-      tech: ["TypeScript", "D3.js", "Express"],
+        "Music web-app. Personal project where AI takes over design, but where I implement technical functionalities to make the app work.",
+      tech: ["Test"],
       link: "#",
     },
   ];
@@ -91,7 +76,7 @@ export default function Home() {
                 Jayden de Roo
               </h1>
               <p className="text-xl text-zinc-600 dark:text-zinc-400 mb-8 max-w-2xl">
-                Aspiring Software Engineer with focus on solid code, unique
+                Aspiring Software Engineer with focus on solid code, seamless
                 design and functional systems.
               </p>
             </motion.div>
@@ -109,7 +94,7 @@ export default function Home() {
             >
               Skills & Tools
             </motion.h2>
-            <div className="grid grid-cols-3 md:grid-cols-5 gap-6">
+            <div className="grid grid-cols-3 md:grid-cols-4 gap-6">
               {skills.map((skill, index) => (
                 <motion.div
                   key={skill.name}
@@ -122,19 +107,11 @@ export default function Home() {
                   onMouseLeave={() => setHoveredSkill(null)}
                   className="flex flex-col items-center gap-3 p-4 rounded-xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-blue-500 dark:hover:border-blue-500 transition-all duration-300 cursor-pointer group"
                 >
-                  <div className="relative">
-                    <img
-                      src={skill.icon}
-                      alt={skill.name}
-                      className="w-12 h-12 transition-transform duration-300 group-hover:scale-110"
-                    />
-                    {hoveredSkill === skill.name && (
-                      <motion.div
-                        layoutId="skillGlow"
-                        className="absolute inset-0 bg-blue-500/20 rounded-lg blur-xl -z-10"
-                      />
-                    )}
-                  </div>
+                  <img
+                    src={skill.icon}
+                    alt={skill.name}
+                    className="w-12 h-12 transition-transform duration-300 group-hover:scale-110"
+                  />
                   <span className="text-xs font-medium text-zinc-600 dark:text-zinc-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors text-center">
                     {skill.name}
                   </span>
@@ -145,8 +122,26 @@ export default function Home() {
         </section>
 
         {/* Projects Section */}
-        <section className="py-20 px-6">
-          <div className="max-w-4xl mx-auto">
+        <section className="py-20 px-6 relative overflow-hidden">
+          <div className="absolute inset-0 pointer-events-none opacity-10 dark:opacity-5">
+            <svg
+              className="w-full h-full"
+              viewBox="0 0 1200 600"
+              preserveAspectRatio="none"
+            >
+              <path
+                d="M0,400 L200,300 L400,350 L600,250 L800,320 L1000,280 L1200,350 L1200,600 L0,600 Z"
+                fill="currentColor"
+                className="text-zinc-400 dark:text-zinc-400"
+              />
+              <path
+                d="M0,450 L150,380 L350,420 L550,350 L750,400 L950,360 L1200,420 L1200,600 L0,600 Z"
+                fill="currentColor"
+                className="text-zinc-300 dark:text-zinc-600"
+              />
+            </svg>
+          </div>
+          <div className="max-w-4xl mx-auto relative z-10">
             <motion.h2
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}

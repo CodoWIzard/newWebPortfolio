@@ -8,7 +8,7 @@ export default function Footer() {
           </p>
           <div className="flex gap-6">
             <a
-              href="https://github.com"
+              href="https://github.com/CodoWIzard"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm text-zinc-600 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors"
@@ -16,7 +16,7 @@ export default function Footer() {
               GitHub
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/jayden-de-roo-a27a801a7/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm text-zinc-600 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors"
@@ -24,7 +24,7 @@ export default function Footer() {
               LinkedIn
             </a>
             <a
-              href="mailto:contact@example.com"
+              href="mailto:jayden.deroo@gmail.com"
               className="text-sm text-zinc-600 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors"
             >
               Email
