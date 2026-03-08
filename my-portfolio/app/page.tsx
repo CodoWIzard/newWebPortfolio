@@ -7,6 +7,7 @@ import Footer from "./Footer";
 
 export default function Home() {
   const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
+  const [showMore, setShowMore] = useState(false);
 
   const skills = [
     {
@@ -32,14 +33,6 @@ export default function Home() {
     {
       name: "TypeScript",
       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
-    },
-    {
-      name: "AWS",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
-    },
-    {
-      name: "Java",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
     },
   ];
 
@@ -75,10 +68,42 @@ export default function Home() {
               <h1 className="text-5xl md:text-6xl font-bold text-black dark:text-white mb-6">
                 Jayden de Roo
               </h1>
-              <p className="text-xl text-zinc-600 dark:text-zinc-400 mb-8 max-w-2xl">
-                Aspiring Software Engineer with focus on solid code, seamless
-                design and functional systems.
-              </p>
+              <div className="text-xl text-zinc-600 dark:text-zinc-400 mb-8 max-w-2xl space-y-4">
+                <p>
+                  Aspiring Software Engineer with focus on solid code, seamless
+                  design and functional systems.
+                </p>
+                <motion.div
+                  initial={false}
+                  animate={{
+                    height: showMore ? "auto" : 0,
+                    opacity: showMore ? 1 : 0,
+                  }}
+                  transition={{ duration: 0.3 }}
+                  className="overflow-hidden space-y-4"
+                >
+                  <p>
+                    I'm a security enthusiast next to being involved in design.
+                    I enjoy learning and practising defensive and offensive
+                    security, while understanding human-machine design
+                    principles is another skill-tree that I love indulging
+                    myself in.
+                  </p>
+                  <p>
+                    Though, I do not just stick to my interest, while also
+                    avoiding to be a generalist. Specialisation is important,
+                    while having a broad knowledge of other tools and
+                    technologies are essential.
+                  </p>
+                  <p>This is my vision, and I'm ready to broaden it.</p>
+                </motion.div>
+              </div>
+              <button
+                onClick={() => setShowMore(!showMore)}
+                className="flex items-center gap-2 px-3 py-2 bg-white/80 dark:bg-black/80 backdrop-blur-md rounded-lg border border-zinc-200 dark:border-zinc-800 shadow-lg text-xs font-mono text-green-600 dark:text-green-500 hover:border-blue-500 transition-colors"
+              >
+                {showMore ? "Show less" : "Learn more about me"}
+              </button>
             </motion.div>
           </div>
         </section>
@@ -92,9 +117,9 @@ export default function Home() {
               viewport={{ once: true }}
               className="text-3xl font-bold text-black dark:text-white mb-12 text-center"
             >
-              Skills & Tools
+              I get along with
             </motion.h2>
-            <div className="grid grid-cols-3 md:grid-cols-4 gap-6">
+            <div className="grid grid-cols-3 md:grid-cols-3 gap-6 mb-16">
               {skills.map((skill, index) => (
                 <motion.div
                   key={skill.name}
@@ -105,6 +130,49 @@ export default function Home() {
                   whileHover={{ y: -8, scale: 1.05 }}
                   onMouseEnter={() => setHoveredSkill(skill.name)}
                   onMouseLeave={() => setHoveredSkill(null)}
+                  className="flex flex-col items-center gap-3 p-4 rounded-xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-blue-500 dark:hover:border-blue-500 transition-all duration-300 cursor-pointer group"
+                >
+                  <img
+                    src={skill.icon}
+                    alt={skill.name}
+                    className="w-12 h-12 transition-transform duration-300 group-hover:scale-110"
+                  />
+                  <span className="text-xs font-medium text-zinc-600 dark:text-zinc-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors text-center">
+                    {skill.name}
+                  </span>
+                </motion.div>
+              ))}
+            </div>
+            <motion.h3
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="text-2xl font-bold text-black dark:text-white mb-8 text-center"
+            >
+              Currently Learning
+            </motion.h3>
+            <div className="grid grid-cols-3 gap-6 max-w-2xl mx-auto">
+              {[
+                {
+                  name: "Ubuntu Server",
+                  icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ubuntu/ubuntu-plain.svg",
+                },
+                {
+                  name: "Python",
+                  icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+                },
+                {
+                  name: "AWS",
+                  icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+                },
+              ].map((skill, index) => (
+                <motion.div
+                  key={skill.name}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.05 }}
+                  whileHover={{ y: -8, scale: 1.05 }}
                   className="flex flex-col items-center gap-3 p-4 rounded-xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-blue-500 dark:hover:border-blue-500 transition-all duration-300 cursor-pointer group"
                 >
                   <img
