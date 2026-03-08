@@ -42,14 +42,14 @@ export default function Home() {
       description:
         "A mobile-first driven web project. This web-app is capable of functioning offline by caching your data from your latest on-line session.",
       tech: ["Test"],
-      link: "#",
+      link: "https://vercel.com/codowizards-projects/wpa-app",
     },
     {
       title: "FineTune",
       description:
         "Music web-app. Personal project where AI takes over design, but where I implement technical functionalities to make the app work.",
-      tech: ["Test"],
-      link: "#",
+      tech: ["TypeScript"],
+      link: "https://vercel.com/codowizards-projects/mini-music-app",
     },
   ];
 
