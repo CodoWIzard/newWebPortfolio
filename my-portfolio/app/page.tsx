@@ -41,15 +41,15 @@ export default function Home() {
       title: "PWA Mobile-First",
       description:
         "A mobile-first driven web project. This web-app is capable of functioning offline by caching your data from your latest on-line session.",
-      tech: ["Test"],
-      link: "https://vercel.com/codowizards-projects/wpa-app",
+      tech: ["NextJS"],
+      link: "https://wpa-app.vercel.app/",
     },
     {
       title: "FineTune",
       description:
         "Music web-app. Personal project where AI takes over design, but where I implement technical functionalities to make the app work.",
       tech: ["TypeScript"],
-      link: "https://vercel.com/codowizards-projects/mini-music-app",
+      link: "https://mini-music-app-liard.vercel.app/",
     },
   ];
 
