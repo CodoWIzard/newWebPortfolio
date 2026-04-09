@@ -23,16 +23,28 @@ export default function Home() {
       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nuxtjs/nuxtjs-original.svg",
     },
     {
-      name: "MySQL",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
-    },
-    {
-      name: "TailwindCSS",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
-    },
-    {
       name: "TypeScript",
       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+    },
+    {
+      name: "Shopify",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/shopify/shopify-original.svg",
+    },
+    {
+      name: "WordPress",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-plain.svg",
+    },
+    {
+      name: "Webflow",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/webflow/webflow-original.svg",
+    },
+    {
+      name: "Figma",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg",
+    },
+    {
+      name: "Google Stitch",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg",
     },
   ];
 
@@ -70,8 +82,7 @@ export default function Home() {
               </h1>
               <div className="text-xl text-zinc-600 dark:text-zinc-400 mb-8 max-w-2xl space-y-4">
                 <p>
-                  Aspiring Software Engineer with focus on solid code, seamless
-                  design and functional systems.
+                  Aspiring web developer & designer.
                 </p>
                 <motion.div
                   initial={false}
@@ -83,19 +94,12 @@ export default function Home() {
                   className="overflow-hidden space-y-4"
                 >
                   <p>
-                    I'm a security enthusiast next to being involved in design.
-                    I enjoy learning and practising defensive and offensive
-                    security, while understanding human-machine design
-                    principles is another skill-tree that I love indulging
-                    myself in.
+                    I'm a tech enthusiast with much interest in design.
+                    I enjoy learning and practising new technologies, while also understanding whether something's reliable enough to be used for work.
                   </p>
                   <p>
-                    Though, I do not just stick to my interest, while also
-                    avoiding to be a generalist. Specialisation is important,
-                    while having a broad knowledge of other tools and
-                    technologies are essential.
+                    Everyday new technologies appear. I want to guide myself through this storm of innovation. With the right usage of the right tools, many doors open up to success. My mission is to open those doors. To find success as a designer and developer.
                   </p>
-                  <p>This is my vision, and I'm ready to broaden it.</p>
                 </motion.div>
               </div>
               <button
@@ -164,6 +168,18 @@ export default function Home() {
                 {
                   name: "AWS",
                   icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+                },
+                {
+                  name: "Rive",
+                  icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rive/rive-original.svg",
+                },
+                {
+                  name: "Spline",
+                  icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spline/spline-original.svg",
+                },
+                {
+                  name: "Lua",
+                  icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/lua/lua-original.svg",
                 },
               ].map((skill, index) => (
                 <motion.div
