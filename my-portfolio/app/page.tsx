@@ -1,279 +1,154 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
-import { useState } from "react";
 import Navigation from "./Navigation";
 import Footer from "./Footer";
+import { capabilities, projects, services } from "./data";
+import {
+  FloatingSignal,
+  MagneticPanel,
+  PageReveal,
+  Reveal
+} from "./components/MotionPrimitives";
 
 export default function Home() {
-  const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
-  const [showMore, setShowMore] = useState(false);
-
-  const skills = [
-    {
-      name: "PHP",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
-    },
-    {
-      name: "Next.js",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
-    },
-    {
-      name: "Nuxt.js",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nuxtjs/nuxtjs-original.svg",
-    },
-    {
-      name: "TypeScript",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
-    },
-    {
-      name: "Shopify",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/shopify/shopify-original.svg",
-    },
-    {
-      name: "WordPress",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-plain.svg",
-    },
-    {
-      name: "Webflow",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/webflow/webflow-original.svg",
-    },
-    {
-      name: "Figma",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg",
-    },
-    {
-      name: "Google Stitch",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg",
-    },
-  ];
-
-  const projects = [
-    {
-      title: "PWA Mobile-First",
-      description:
-        "A mobile-first driven web project. This web-app is capable of functioning offline by caching your data from your latest on-line session.",
-      tech: ["NuxtJS", "PWA"],
-      link: "https://wpa-app.vercel.app/",
-    },
-    {
-      title: "FineTune",
-      description:
-        "Music web-app. Personal project where AI takes over design, but where I implement technical functionalities to make the app work.",
-      tech: ["NextJS", "TypeScript", "Framer"],
-      link: "https://mini-music-app-liard.vercel.app/",
-    },
-  ];
-
   return (
     <>
       <Navigation />
-      <main className="min-h-screen bg-zinc-50 dark:bg-black">
-        {/* Hero Section */}
-        <section className="pt-32 pb-20 px-6">
-          <div className="max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <h1 className="text-5xl md:text-6xl font-bold text-black dark:text-white mb-6">
-                Jayden de Roo
-              </h1>
-              <div className="text-xl text-zinc-600 dark:text-zinc-400 mb-8 max-w-2xl space-y-4">
-                <p>
-                  Aspiring web developer & designer.
+      <main>
+        <section className="hero-section">
+          <div className="hero-grid">
+            <PageReveal>
+              <div className="hero-copy">
+                <p className="eyebrow">Jayden de Roo / DerooStudio</p>
+                <h1>
+                  Websites that feel built by someone who actually gives a damn.
+                </h1>
+                <p className="hero-lede">
+                  I design and build premium web experiences for people who need their online
+                  presence to feel sharper, more credible, and more alive than a template ever can.
                 </p>
+                <div className="hero-actions">
+                  <Link className="btn primary" href="/work">
+                    Explore the work
+                  </Link>
+                  <Link className="btn secondary" href="/vision">
+                    Read the vision
+                  </Link>
+                </div>
+              </div>
+            </PageReveal>
+
+            <PageReveal>
+              <div className="hero-visual" aria-label="Interactive DerooStudio system visual">
+                <FloatingSignal />
                 <motion.div
-                  initial={false}
-                  animate={{
-                    height: showMore ? "auto" : 0,
-                    opacity: showMore ? 1 : 0,
-                  }}
-                  transition={{ duration: 0.3 }}
-                  className="overflow-hidden space-y-4"
+                  className="system-card main-card"
+                  whileHover={{ scale: 1.025 }}
+                  transition={{ type: "spring", stiffness: 180, damping: 18 }}
                 >
-                  <p>
-                    I'm a tech enthusiast with much interest in design.
-                    I enjoy learning and practising new technologies, while also understanding whether something's reliable enough to be used for work.
-                  </p>
-                  <p>
-                    Everyday new technologies appear. I want to guide myself through this storm of innovation. With the right usage of the right tools, many doors open up to success. My mission is to open those doors. To find success as a designer and developer.
-                  </p>
+                  <span className="card-label">current focus</span>
+                  <strong>Creative technical partner</strong>
+                  <p>Websites, AI workflows, design systems, and deployable ideas.</p>
+                </motion.div>
+                <motion.div
+                  className="system-card side-card one"
+                  animate={{ y: [0, -10, 0] }}
+                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <span>Motion</span>
+                  <strong>subtle but felt</strong>
+                </motion.div>
+                <motion.div
+                  className="system-card side-card two"
+                  animate={{ y: [0, 12, 0] }}
+                  transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <span>Output</span>
+                  <strong>client-ready</strong>
                 </motion.div>
               </div>
-              <button
-                onClick={() => setShowMore(!showMore)}
-                className="flex items-center gap-2 px-3 py-2 bg-white/80 dark:bg-black/80 backdrop-blur-md rounded-lg border border-zinc-200 dark:border-zinc-800 shadow-lg text-xs font-mono text-green-600 dark:text-green-500 hover:border-blue-500 transition-colors"
-              >
-                {showMore ? "Show less" : "Learn more about me"}
-              </button>
+            </PageReveal>
+          </div>
+
+          <div className="capability-marquee" aria-label="Capabilities">
+            <motion.div
+              animate={{ x: ["0%", "-50%"] }}
+              transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
+            >
+              {[...capabilities, ...capabilities].map((item, index) => (
+                <span key={`${item}-${index}`}>{item}</span>
+              ))}
             </motion.div>
           </div>
         </section>
 
-        {/* Skills Section */}
-        <section className="py-20 px-6 bg-white dark:bg-zinc-950">
-          <div className="max-w-4xl mx-auto">
-            <motion.h2
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              className="text-3xl font-bold text-black dark:text-white mb-12 text-center"
-            >
-              I get along with
-            </motion.h2>
-            <div className="grid grid-cols-3 md:grid-cols-3 gap-6 mb-16">
-              {skills.map((skill, index) => (
+        <section className="section split-section">
+          <Reveal className="section-intro">
+            <p className="eyebrow">What this becomes</p>
+            <h2>A personal site with a stronger job than “look, I know tools”.</h2>
+          </Reveal>
+          <Reveal className="statement-panel" delay={0.1}>
+            <p>
+              The new DerooStudio site should make one thing clear: you are not simply offering code.
+              You help businesses translate ambition into an online presence with taste, motion,
+              automation, structure, and enough technical discipline to ship.
+            </p>
+          </Reveal>
+        </section>
+
+        <section className="section services-section">
+          <div className="section-heading">
+            <p className="eyebrow">Offer shape</p>
+            <h2>Three ways I can move a project forward.</h2>
+          </div>
+          <div className="service-grid">
+            {services.map((service, index) => (
+              <MagneticPanel className="service-card" key={service.title}>
+                <span>{service.kicker}</span>
+                <h3>{service.title}</h3>
+                <p>{service.body}</p>
                 <motion.div
-                  key={skill.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  className="card-line"
+                  initial={{ scaleX: 0 }}
+                  whileInView={{ scaleX: 1 }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.05 }}
-                  whileHover={{ y: -8, scale: 1.05 }}
-                  onMouseEnter={() => setHoveredSkill(skill.name)}
-                  onMouseLeave={() => setHoveredSkill(null)}
-                  className="flex flex-col items-center gap-3 p-4 rounded-xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-blue-500 dark:hover:border-blue-500 transition-all duration-300 cursor-pointer group"
-                >
-                  <img
-                    src={skill.icon}
-                    alt={skill.name}
-                    className="w-12 h-12 transition-transform duration-300 group-hover:scale-110"
-                  />
-                  <span className="text-xs font-medium text-zinc-600 dark:text-zinc-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors text-center">
-                    {skill.name}
-                  </span>
-                </motion.div>
-              ))}
-            </div>
-            <motion.h3
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              className="text-2xl font-bold text-black dark:text-white mb-8 text-center"
-            >
-              Currently Learning
-            </motion.h3>
-            <div className="grid grid-cols-3 gap-6 max-w-2xl mx-auto">
-              {[
-                {
-                  name: "Ubuntu Server",
-                  icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ubuntu/ubuntu-plain.svg",
-                },
-                {
-                  name: "Python",
-                  icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
-                },
-                {
-                  name: "AWS",
-                  icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
-                },
-                {
-                  name: "Rive",
-                  icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rive/rive-original.svg",
-                },
-                {
-                  name: "Spline",
-                  icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spline/spline-original.svg",
-                },
-                {
-                  name: "Lua",
-                  icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/lua/lua-original.svg",
-                },
-              ].map((skill, index) => (
-                <motion.div
-                  key={skill.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.05 }}
-                  whileHover={{ y: -8, scale: 1.05 }}
-                  className="flex flex-col items-center gap-3 p-4 rounded-xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-blue-500 dark:hover:border-blue-500 transition-all duration-300 cursor-pointer group"
-                >
-                  <img
-                    src={skill.icon}
-                    alt={skill.name}
-                    className="w-12 h-12 transition-transform duration-300 group-hover:scale-110"
-                  />
-                  <span className="text-xs font-medium text-zinc-600 dark:text-zinc-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors text-center">
-                    {skill.name}
-                  </span>
-                </motion.div>
-              ))}
-            </div>
+                  transition={{ delay: index * 0.12, duration: 0.7 }}
+                />
+              </MagneticPanel>
+            ))}
           </div>
         </section>
 
-        {/* Projects Section */}
-        <section className="py-20 px-6 relative overflow-hidden">
-          <div className="absolute inset-0 pointer-events-none opacity-10 dark:opacity-5">
-            <svg
-              className="w-full h-full"
-              viewBox="0 0 1200 600"
-              preserveAspectRatio="none"
-            >
-              <path
-                d="M0,400 L200,300 L400,350 L600,250 L800,320 L1000,280 L1200,350 L1200,600 L0,600 Z"
-                fill="currentColor"
-                className="text-zinc-400 dark:text-zinc-400"
-              />
-              <path
-                d="M0,450 L150,380 L350,420 L550,350 L750,400 L950,360 L1200,420 L1200,600 L0,600 Z"
-                fill="currentColor"
-                className="text-zinc-300 dark:text-zinc-600"
-              />
-            </svg>
+        <section className="section work-preview">
+          <div className="section-heading">
+            <p className="eyebrow">Selected directions</p>
+            <h2>Not a gallery. A signal of how I think.</h2>
           </div>
-          <div className="max-w-4xl mx-auto relative z-10">
-            <motion.h2
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              className="text-3xl font-bold text-black dark:text-white mb-12"
-            >
-              Featured Projects
-            </motion.h2>
-            <div className="space-y-8">
-              {projects.map((project, index) => (
-                <motion.div
-                  key={project.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  whileHover={{ scale: 1.02 }}
-                  className="p-6 bg-white dark:bg-zinc-950 rounded-xl border border-zinc-200 dark:border-zinc-800 shadow-sm hover:shadow-md transition-shadow"
-                >
-                  <h3 className="text-xl font-semibold text-black dark:text-white mb-3">
-                    {project.title}
-                  </h3>
-                  <p className="text-zinc-600 dark:text-zinc-400 mb-4">
-                    {project.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tech.map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-3 py-1 text-xs font-medium bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-400 rounded-full"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                  <a
-                    href={project.link}
-                    className="text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline"
-                  >
-                    View Project →
-                  </a>
-                </motion.div>
-              ))}
-            </div>
+          <div className="project-strip">
+            {projects.map((project) => (
+              <Link className={`project-row ${project.accent}`} href="/work" key={project.title}>
+                <span>{project.year}</span>
+                <strong>{project.title}</strong>
+                <p>{project.description}</p>
+              </Link>
+            ))}
           </div>
+        </section>
+
+        <section className="section cta-band">
+          <Reveal>
+            <p className="eyebrow">Next move</p>
+            <h2>Let the site feel like the level you want to operate at.</h2>
+            <Link className="btn primary" href="/vision">
+              See how I approach it
+            </Link>
+          </Reveal>
         </section>
       </main>
       <Footer />
     </>
   );
 }
+

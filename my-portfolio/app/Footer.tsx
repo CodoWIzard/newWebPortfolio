@@ -1,37 +1,26 @@
 export default function Footer() {
   return (
-    <footer className="border-t border-zinc-200 dark:border-zinc-800 bg-white dark:bg-black">
-      <div className="max-w-6xl mx-auto px-6 py-8">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-zinc-600 dark:text-zinc-400">
-            © {new Date().getFullYear()} All rights reserved.
-          </p>
-          <div className="flex gap-6">
-            <a
-              href="https://github.com/CodoWIzard"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm text-zinc-600 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors"
-            >
-              GitHub
-            </a>
-            <a
-              href="https://www.linkedin.com/in/jayden-de-roo-a27a801a7/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm text-zinc-600 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors"
-            >
-              LinkedIn
-            </a>
-            <a
-              href="mailto:jayden.deroo@gmail.com"
-              className="text-sm text-zinc-600 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors"
-            >
-              Email
-            </a>
-          </div>
-        </div>
+    <footer className="site-footer">
+      <div>
+        <p className="eyebrow">Available for focused builds</p>
+        <h2>Have a serious web idea?</h2>
+      </div>
+      <div className="footer-actions">
+        <a href="mailto:jayden.deroo@gmail.com?subject=Website%20project%20inquiry">
+          Start the conversation
+        </a>
+        <a href="https://github.com/CodoWIzard" target="_blank" rel="noopener noreferrer">
+          GitHub
+        </a>
+        <a
+          href="https://www.linkedin.com/in/jayden-de-roo-a27a801a7/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          LinkedIn
+        </a>
       </div>
     </footer>
   );
 }
+
