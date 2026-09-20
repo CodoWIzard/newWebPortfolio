@@ -48,7 +48,9 @@ export default function Navigation() {
           </span>
           <span className="brand-wordmark brand-wordmark-nav">
             <strong>
-              <span>Deroo</span>
+              <span>
+                Der<span className="brand-oo">oo</span>
+              </span>
               <span>Studio</span>
             </strong>
             <small>websites / systems / motion</small>

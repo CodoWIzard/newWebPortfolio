@@ -71,42 +71,49 @@ export default function Home() {
 
         <section className="section brand-directions">
           <div className="section-heading">
-            <p className="eyebrow">Wordmark directions</p>
-            <h2>Three ways DerooStudio can start behaving like a brand.</h2>
+            <p className="eyebrow">Wordmark studies</p>
+            <h2>Make the name behave like a masthead, not a menu label.</h2>
           </div>
           <div className="brand-direction-grid">
             <Reveal>
-              <article className="brand-direction-card refined">
-                <span className="brand-option-label">01 / Refined</span>
-                <div className="brand-preview wordmark-refined" aria-label="DerooStudio refined wordmark">
-                  DerooStudio
+              <article className="brand-direction-card editorial">
+                <span className="brand-option-label">01 / Editorial masthead</span>
+                <div className="brand-preview wordmark-editorial" aria-label="DerooStudio editorial masthead">
+                  <span>Der</span>
+                  <span className="wordmark-oo">oo</span>
+                  <span>Studio</span>
                 </div>
-                <p>Quiet, editorial, and timeless. Best if the brand should feel premium without trying too hard.</p>
+                <p>A custom wordmark built around the double-o as the memorable detail. More magazine cover, less typed logo.</p>
               </article>
             </Reveal>
 
             <Reveal delay={0.08}>
-              <article className="brand-direction-card split">
-                <span className="brand-option-label">02 / Split identity</span>
-                <div className="brand-preview wordmark-split" aria-label="DerooStudio split wordmark">
-                  <span>Deroo</span>
+              <article className="brand-direction-card split featured">
+                <span className="brand-option-label">02 / Recommended system</span>
+                <div className="brand-preview wordmark-split" aria-label="DerooStudio split editorial wordmark">
+                  <span>
+                    Der<span className="wordmark-oo">oo</span>
+                  </span>
                   <span>Studio</span>
                 </div>
-                <p>My recommendation. It keeps the name readable, but adds a studio-system feeling through contrast and spacing.</p>
+                <p>The strongest direction: readable, editorial, and ownable. Deroo carries the craft, Studio behaves like a disciplined imprint.</p>
               </article>
             </Reveal>
 
             <Reveal delay={0.16}>
               <article className="brand-direction-card monogram">
-                <span className="brand-option-label">03 / Monogram system</span>
-                <div className="brand-preview monogram-lockup" aria-label="DerooStudio monogram lockup">
+                <span className="brand-option-label">03 / Studio seal</span>
+                <div className="brand-preview monogram-lockup" aria-label="DerooStudio editorial seal">
                   <span className="monogram-box">
                     <span>D</span>
                     <span>S</span>
                   </span>
-                  <span>DerooStudio</span>
+                  <span className="seal-caption">
+                    <span>DerooStudio</span>
+                    <span>Amsterdam / Web presence</span>
+                  </span>
                 </div>
-                <p>Best for avatars, favicons, watermarks, and small UI moments where the full name would be too much.</p>
+                <p>A compact mark for favicon, avatar, document covers, and social crops. It makes the identity portable.</p>
               </article>
             </Reveal>
           </div>

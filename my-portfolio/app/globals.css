@@ -196,13 +196,22 @@ p {
   line-height: 0.95;
 }
 
-.brand-wordmark strong span:last-child {
+.brand-wordmark strong > span:last-child {
   color: var(--accent-soft);
   font-family: var(--font-mono), monospace;
   font-size: 0.56em;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
+}
+
+.brand-oo {
+  display: inline-flex;
+  margin-inline: -0.03em 0.01em;
+  padding-inline: 0.025em;
+  border: 1px solid rgba(238, 234, 222, 0.2);
+  border-radius: 999px;
+  line-height: 0.82;
 }
 
 .brand-wordmark small {
@@ -506,27 +515,52 @@ a:focus-visible {
 }
 
 .brand-directions {
+  position: relative;
   border-block: 1px solid var(--line);
+}
+
+.brand-directions::before {
+  position: absolute;
+  inset: 0 clamp(18px, 4vw, 56px);
+  z-index: -1;
+  border-inline: 1px solid rgba(238, 234, 222, 0.06);
+  content: "";
 }
 
 .brand-direction-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 0.88fr 1.24fr 0.88fr;
   gap: 18px;
 }
 
 .brand-direction-card {
+  position: relative;
   display: grid;
-  min-height: 410px;
+  min-height: 460px;
   align-content: space-between;
   gap: 28px;
   border: 1px solid var(--line);
-  border-radius: 26px;
+  border-radius: 0;
   padding: clamp(22px, 3vw, 30px);
   background:
     linear-gradient(180deg, rgba(238, 234, 222, 0.075), rgba(238, 234, 222, 0.028)),
     var(--ink);
   overflow: hidden;
+}
+
+.brand-direction-card::before {
+  position: absolute;
+  inset: 12px;
+  pointer-events: none;
+  border: 1px solid rgba(238, 234, 222, 0.055);
+  content: "";
+}
+
+.brand-direction-card.featured {
+  min-height: 520px;
+  background:
+    linear-gradient(120deg, rgba(238, 234, 222, 0.1), rgba(238, 234, 222, 0.025) 45%),
+    var(--ink);
 }
 
 .brand-option-label {
@@ -544,43 +578,85 @@ a:focus-visible {
   color: var(--bone);
 }
 
-.wordmark-refined {
+.wordmark-editorial {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto auto;
+  align-content: center;
+  align-items: end;
+  column-gap: 0;
   font-family: var(--font-display), Georgia, serif;
-  font-size: clamp(2.55rem, 4.2vw, 4.7rem);
-  font-weight: 640;
-  letter-spacing: -0.015em;
-  line-height: 0.9;
+  line-height: 0.78;
+  text-transform: none;
 }
 
-.wordmark-refined::first-letter {
-  font-variant-ligatures: none;
+.wordmark-editorial > span:first-child {
+  font-size: clamp(3.4rem, 6vw, 6.7rem);
+  font-weight: 670;
+  letter-spacing: -0.035em;
+}
+
+.wordmark-editorial > span:last-child {
+  grid-column: 1 / -1;
+  justify-self: end;
+  margin-top: 14px;
+  border-top: 1px solid rgba(238, 234, 222, 0.28);
+  padding-top: 9px;
+  color: var(--accent-soft);
+  font-family: var(--font-mono), monospace;
+  font-size: clamp(0.78rem, 1.1vw, 1rem);
+  font-weight: 600;
+  letter-spacing: 0.34em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.wordmark-oo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.22em;
+  min-height: 0.82em;
+  margin-inline: -0.04em 0.02em;
+  border: 1px solid rgba(238, 234, 222, 0.26);
+  border-radius: 999px;
+  color: var(--bone);
+  letter-spacing: -0.16em;
+  transform: translateY(-0.015em);
 }
 
 .wordmark-split {
   flex-direction: column;
   align-items: flex-start;
-  gap: 4px;
+  justify-content: center;
+  gap: 14px;
   font-family: var(--font-display), Georgia, serif;
-  line-height: 0.82;
+  line-height: 0.78;
 }
 
-.wordmark-split span:first-child {
-  font-size: clamp(3.2rem, 5.8vw, 6.2rem);
-  font-weight: 650;
+.wordmark-split > span:first-child {
+  font-size: clamp(4.2rem, 8vw, 8.8rem);
+  font-weight: 690;
+  letter-spacing: -0.045em;
 }
 
-.wordmark-split span:last-child {
-  border-top: 1px solid rgba(238, 234, 222, 0.26);
-  padding-top: 10px;
+.wordmark-split > span:last-child {
+  align-self: stretch;
+  display: flex;
+  justify-content: space-between;
+  border-block: 1px solid rgba(238, 234, 222, 0.24);
+  padding-block: 12px;
   color: var(--accent-soft);
   font-family: var(--font-mono), monospace;
   font-size: clamp(0.9rem, 1.4vw, 1.25rem);
   font-weight: 600;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.52em;
   text-transform: uppercase;
 }
 
 .monogram-lockup {
+  flex-direction: column;
+  align-items: flex-start;
   gap: 18px;
   font-family: var(--font-display), Georgia, serif;
   font-size: clamp(1.6rem, 2.5vw, 2.5rem);
@@ -590,12 +666,12 @@ a:focus-visible {
 .monogram-box {
   position: relative;
   display: inline-grid;
-  width: clamp(96px, 11vw, 132px);
+  width: clamp(124px, 15vw, 180px);
   aspect-ratio: 1;
   flex: 0 0 auto;
   grid-template-columns: 1fr 1fr;
   border: 1px solid rgba(238, 234, 222, 0.3);
-  border-radius: 50%;
+  border-radius: 0;
   overflow: hidden;
 }
 
@@ -610,7 +686,7 @@ a:focus-visible {
 .monogram-box span {
   display: grid;
   place-items: center;
-  font-size: clamp(2rem, 4vw, 3.8rem);
+  font-size: clamp(2.6rem, 5vw, 5rem);
 }
 
 .monogram-box span:first-child {
@@ -620,6 +696,24 @@ a:focus-visible {
 
 .monogram-box span:last-child {
   transform: translateY(8%);
+}
+
+.seal-caption {
+  display: grid;
+  gap: 8px;
+}
+
+.seal-caption span:first-child {
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  line-height: 0.92;
+}
+
+.seal-caption span:last-child {
+  color: var(--quiet);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
 }
 
 .brand-direction-card p {
@@ -1025,7 +1119,7 @@ a:focus-visible {
     font-size: 0.88rem;
   }
 
-  .brand-wordmark strong span:last-child {
+  .brand-wordmark strong > span:last-child {
     font-size: 0.5em;
     letter-spacing: 0.1em;
   }
