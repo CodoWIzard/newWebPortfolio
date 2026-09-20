@@ -6,7 +6,7 @@ export const projects = [
     description:
       "Fast, high-taste redesign previews for local service businesses, built to turn outdated credibility into a sharp first impression.",
     outcome: "Strategy, visual system, responsive one-pager, Vercel deployment",
-    accent: "cobalt"
+    accent: "neutral"
   },
   {
     title: "AI OS in Discord",
@@ -15,7 +15,7 @@ export const projects = [
     description:
       "A working command layer for websites, agents, memory, deployment, and daily operations through Discord.",
     outcome: "OpenClaw orchestration, Codex builds, Hermes operations, persistent memory",
-    accent: "moss"
+    accent: "neutral"
   },
   {
     title: "Premium web production",
@@ -24,7 +24,7 @@ export const projects = [
     description:
       "Modern Next.js sites with motion, SEO structure, strong positioning, and deployment discipline.",
     outcome: "Next.js, Tailwind, Framer Motion, GitHub, Vercel",
-    accent: "amber"
+    accent: "neutral"
   }
 ];
 
@@ -77,4 +77,3 @@ export const services = [
       "Helping businesses decide what their online presence should say, how it should feel, and what it needs to convert."
   }
 ];
-

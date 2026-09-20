@@ -33,9 +33,23 @@ export default function Home() {
             </PageReveal>
 
             <PageReveal>
-              <div className="hero-aside" aria-label="DerooStudio focus">
-                <span>Based in Amsterdam</span>
-                <strong>Websites / identity / motion / systems</strong>
+              <div className="hero-aside" aria-label="DerooStudio studio notes">
+                <span>Amsterdam / independent studio</span>
+                <strong>Websites that feel composed, trusted, and alive.</strong>
+                <dl className="hero-notes">
+                  <div>
+                    <dt>Focus</dt>
+                    <dd>Web presence</dd>
+                  </div>
+                  <div>
+                    <dt>Method</dt>
+                    <dd>Strategy, design, code</dd>
+                  </div>
+                  <div>
+                    <dt>Output</dt>
+                    <dd>Client-ready sites</dd>
+                  </div>
+                </dl>
               </div>
             </PageReveal>
           </div>
@@ -101,4 +115,3 @@ export default function Home() {
     </>
   );
 }
-
