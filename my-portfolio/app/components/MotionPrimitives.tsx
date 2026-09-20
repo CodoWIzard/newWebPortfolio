@@ -67,28 +67,3 @@ export function ScrollProgress() {
 
   return <motion.div className="scroll-progress" style={{ scaleX }} />;
 }
-
-export function FloatingSignal() {
-  const reduced = useReducedMotion();
-
-  return (
-    <motion.div
-      className="floating-signal"
-      animate={
-        reduced
-          ? undefined
-          : {
-              y: [0, -14, 0],
-              rotate: [0, 2, -1, 0]
-            }
-      }
-      transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-      aria-hidden
-    >
-      <span />
-      <span />
-      <span />
-    </motion.div>
-  );
-}
-
