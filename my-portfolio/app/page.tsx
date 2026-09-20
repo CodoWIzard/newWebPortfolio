@@ -69,6 +69,49 @@ export default function Home() {
           </Reveal>
         </section>
 
+        <section className="section brand-directions">
+          <div className="section-heading">
+            <p className="eyebrow">Wordmark directions</p>
+            <h2>Three ways DerooStudio can start behaving like a brand.</h2>
+          </div>
+          <div className="brand-direction-grid">
+            <Reveal>
+              <article className="brand-direction-card refined">
+                <span className="brand-option-label">01 / Refined</span>
+                <div className="brand-preview wordmark-refined" aria-label="DerooStudio refined wordmark">
+                  DerooStudio
+                </div>
+                <p>Quiet, editorial, and timeless. Best if the brand should feel premium without trying too hard.</p>
+              </article>
+            </Reveal>
+
+            <Reveal delay={0.08}>
+              <article className="brand-direction-card split">
+                <span className="brand-option-label">02 / Split identity</span>
+                <div className="brand-preview wordmark-split" aria-label="DerooStudio split wordmark">
+                  <span>Deroo</span>
+                  <span>Studio</span>
+                </div>
+                <p>My recommendation. It keeps the name readable, but adds a studio-system feeling through contrast and spacing.</p>
+              </article>
+            </Reveal>
+
+            <Reveal delay={0.16}>
+              <article className="brand-direction-card monogram">
+                <span className="brand-option-label">03 / Monogram system</span>
+                <div className="brand-preview monogram-lockup" aria-label="DerooStudio monogram lockup">
+                  <span className="monogram-box">
+                    <span>D</span>
+                    <span>S</span>
+                  </span>
+                  <span>DerooStudio</span>
+                </div>
+                <p>Best for avatars, favicons, watermarks, and small UI moments where the full name would be too much.</p>
+              </article>
+            </Reveal>
+          </div>
+        </section>
+
         <section className="section services-section">
           <div className="section-heading">
             <p className="eyebrow">Offer shape</p>

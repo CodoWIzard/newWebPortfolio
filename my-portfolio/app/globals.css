@@ -135,33 +135,79 @@ p {
 .brand-lockup {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   min-width: 0;
 }
 
-.brand-glyph {
-  display: grid;
+.brand-mark {
+  position: relative;
+  display: inline-grid;
   width: 42px;
   height: 42px;
-  place-items: center;
+  flex: 0 0 auto;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
   border: 1px solid rgba(238, 234, 222, 0.22);
-  border-radius: 999px;
+  border-radius: 50%;
   background: rgba(238, 234, 222, 0.08);
   font-family: var(--font-display), serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
+  line-height: 1;
+  overflow: hidden;
 }
 
-.brand-lockup strong,
-.brand-lockup small {
+.brand-mark::before {
+  position: absolute;
+  inset: 50% 6px auto;
+  height: 1px;
+  background: rgba(238, 234, 222, 0.28);
+  content: "";
+}
+
+.brand-mark span {
+  display: grid;
+  height: 100%;
+  place-items: center;
+}
+
+.brand-mark span:first-child {
+  border-right: 1px solid rgba(238, 234, 222, 0.18);
+  transform: translateY(-3px);
+}
+
+.brand-mark span:last-child {
+  transform: translateY(3px);
+}
+
+.brand-wordmark strong,
+.brand-wordmark small {
   display: block;
 }
 
-.brand-lockup strong {
-  font-size: 0.92rem;
+.brand-wordmark strong {
+  display: flex;
+  align-items: baseline;
+  gap: 3px;
+  color: var(--bone);
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 1.02rem;
+  font-weight: 620;
+  letter-spacing: 0;
+  line-height: 0.95;
 }
 
-.brand-lockup small {
+.brand-wordmark strong span:last-child {
+  color: var(--accent-soft);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.56em;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.brand-wordmark small {
   max-width: 180px;
+  margin-top: 4px;
   color: var(--quiet);
   font-family: var(--font-mono), monospace;
   font-size: 0.66rem;
@@ -457,6 +503,129 @@ a:focus-visible {
   color: var(--muted);
   font-size: clamp(1rem, 1.55vw, 1.45rem);
   line-height: 1.58;
+}
+
+.brand-directions {
+  border-block: 1px solid var(--line);
+}
+
+.brand-direction-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.brand-direction-card {
+  display: grid;
+  min-height: 410px;
+  align-content: space-between;
+  gap: 28px;
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  padding: clamp(22px, 3vw, 30px);
+  background:
+    linear-gradient(180deg, rgba(238, 234, 222, 0.075), rgba(238, 234, 222, 0.028)),
+    var(--ink);
+  overflow: hidden;
+}
+
+.brand-option-label {
+  color: var(--quiet);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.brand-preview {
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+  color: var(--bone);
+}
+
+.wordmark-refined {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(2.55rem, 4.2vw, 4.7rem);
+  font-weight: 640;
+  letter-spacing: -0.015em;
+  line-height: 0.9;
+}
+
+.wordmark-refined::first-letter {
+  font-variant-ligatures: none;
+}
+
+.wordmark-split {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  font-family: var(--font-display), Georgia, serif;
+  line-height: 0.82;
+}
+
+.wordmark-split span:first-child {
+  font-size: clamp(3.2rem, 5.8vw, 6.2rem);
+  font-weight: 650;
+}
+
+.wordmark-split span:last-child {
+  border-top: 1px solid rgba(238, 234, 222, 0.26);
+  padding-top: 10px;
+  color: var(--accent-soft);
+  font-family: var(--font-mono), monospace;
+  font-size: clamp(0.9rem, 1.4vw, 1.25rem);
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.monogram-lockup {
+  gap: 18px;
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(1.6rem, 2.5vw, 2.5rem);
+  font-weight: 620;
+}
+
+.monogram-box {
+  position: relative;
+  display: inline-grid;
+  width: clamp(96px, 11vw, 132px);
+  aspect-ratio: 1;
+  flex: 0 0 auto;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid rgba(238, 234, 222, 0.3);
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.monogram-box::before {
+  position: absolute;
+  inset: 50% 12px auto;
+  height: 1px;
+  background: rgba(238, 234, 222, 0.26);
+  content: "";
+}
+
+.monogram-box span {
+  display: grid;
+  place-items: center;
+  font-size: clamp(2rem, 4vw, 3.8rem);
+}
+
+.monogram-box span:first-child {
+  border-right: 1px solid rgba(238, 234, 222, 0.2);
+  transform: translateY(-8%);
+}
+
+.monogram-box span:last-child {
+  transform: translateY(8%);
+}
+
+.brand-direction-card p {
+  max-width: 30ch;
+  color: var(--muted);
+  line-height: 1.65;
 }
 
 .section-heading {
@@ -794,7 +963,7 @@ a:focus-visible {
     display: none;
   }
 
-  .brand-lockup small {
+  .brand-wordmark small {
     display: none;
   }
 
@@ -824,6 +993,7 @@ a:focus-visible {
   }
 
   .service-grid,
+  .brand-direction-grid,
   .case-grid,
   .principles-grid {
     grid-template-columns: 1fr;
@@ -846,13 +1016,18 @@ a:focus-visible {
     padding: 8px;
   }
 
-  .brand-glyph {
+  .brand-mark {
     width: 36px;
     height: 36px;
   }
 
-  .brand-lockup strong {
-    font-size: 0.78rem;
+  .brand-wordmark strong {
+    font-size: 0.88rem;
+  }
+
+  .brand-wordmark strong span:last-child {
+    font-size: 0.5em;
+    letter-spacing: 0.1em;
   }
 
   .nav-links {
@@ -892,6 +1067,18 @@ a:focus-visible {
     border-left: 0;
     border-top: 1px solid var(--line);
     padding: 22px 0 0;
+  }
+
+  .brand-direction-card {
+    min-height: 330px;
+  }
+
+  .brand-preview {
+    min-height: 118px;
+  }
+
+  .monogram-lockup {
+    flex-wrap: wrap;
   }
 
   .section,

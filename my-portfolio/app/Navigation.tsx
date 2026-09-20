@@ -42,9 +42,15 @@ export default function Navigation() {
         transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
       >
         <Link href="/" className="brand-lockup" aria-label="DerooStudio home">
-          <span className="brand-glyph">D</span>
-          <span>
-            <strong>DerooStudio</strong>
+          <span className="brand-mark" aria-hidden="true">
+            <span>D</span>
+            <span>S</span>
+          </span>
+          <span className="brand-wordmark brand-wordmark-nav">
+            <strong>
+              <span>Deroo</span>
+              <span>Studio</span>
+            </strong>
             <small>websites / systems / motion</small>
           </span>
         </Link>
@@ -69,4 +75,3 @@ export default function Navigation() {
     </>
   );
 }
-
